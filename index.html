@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>iRoutine 개인정보처리방침</title>
+        <title>iRoutine 개인정보처리방침 (Legal Documents)</title>
         <style>
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -44,10 +44,35 @@
             .section {
                 margin-bottom: 25px;
             }
+            .lang-switch {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 15px;
+                gap: 8px;
+            }
+            .lang-btn {
+                padding: 6px 14px;
+                border: 1px solid #3498db;
+                background: white;
+                color: #3498db;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.2s;
+            }
+            .lang-btn.active {
+                background: #3498db;
+                color: white;
+            }
+            .lang-btn:hover {
+                background: #3498db;
+                color: white;
+            }
             .nav-tabs {
                 display: flex;
                 border-bottom: 2px solid #e9ecef;
                 margin-bottom: 30px;
+                flex-wrap: wrap;
             }
             .nav-tab {
                 padding: 12px 24px;
@@ -73,22 +98,64 @@
             .tab-content.active {
                 display: block;
             }
+            .lang-content {
+                display: none;
+            }
+            .lang-content.active {
+                display: block;
+            }
         </style>
     </head>
     <body>
-        <h1>iRoutine 법적 문서</h1>
-
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab('privacy')">
-                개인정보처리방침
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ko')">
+                한국어
             </button>
-            <button class="nav-tab" onclick="showTab('terms')">이용약관</button>
-            <button class="nav-tab" onclick="showTab('deletion')">
-                계정/데이터 삭제
-            </button>
+            <button class="lang-btn" onclick="switchLang('en')">English</button>
         </div>
 
-        <div id="privacy-tab" class="tab-content active">
+        <!-- Korean Content -->
+        <div id="ko-content" class="lang-content active">
+            <h1>iRoutine 법적 문서</h1>
+
+            <div class="nav-tabs" id="ko-tabs">
+                <button
+                    class="nav-tab active"
+                    onclick="showTab('privacy', 'ko')"
+                >
+                    개인정보처리방침
+                </button>
+                <button class="nav-tab" onclick="showTab('terms', 'ko')">
+                    이용약관
+                </button>
+                <button class="nav-tab" onclick="showTab('deletion', 'ko')">
+                    계정/데이터 삭제
+                </button>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="en-content" class="lang-content">
+            <h1>iRoutine Legal Documents</h1>
+
+            <div class="nav-tabs" id="en-tabs">
+                <button
+                    class="nav-tab active"
+                    onclick="showTab('privacy', 'en')"
+                >
+                    Privacy Policy
+                </button>
+                <button class="nav-tab" onclick="showTab('terms', 'en')">
+                    Terms of Service
+                </button>
+                <button class="nav-tab" onclick="showTab('deletion', 'en')">
+                    Account Deletion
+                </button>
+            </div>
+        </div>
+
+        <!-- Korean Tabs -->
+        <div id="ko-privacy-tab" class="tab-content active">
             <h2
                 style="
                     color: #2c3e50;
@@ -353,7 +420,7 @@
             </div>
         </div>
 
-        <div id="terms-tab" class="tab-content">
+        <div id="ko-terms-tab" class="tab-content">
             <h2
                 style="
                     color: #2c3e50;
@@ -563,7 +630,7 @@
             </div>
         </div>
 
-        <div id="deletion-tab" class="tab-content">
+        <div id="ko-deletion-tab" class="tab-content">
             <h2
                 style="
                     color: #2c3e50;
@@ -655,26 +722,721 @@
             </div>
         </div>
 
+        <!-- English Tabs -->
+        <div id="en-privacy-tab" class="tab-content">
+            <h2
+                style="
+                    color: #2c3e50;
+                    border-bottom: 2px solid #3498db;
+                    padding-bottom: 10px;
+                "
+            >
+                Privacy Policy
+            </h2>
+
+            <div class="meta-info">
+                <strong>Effective Date:</strong> August 20, 2025<br />
+                <strong>Last Updated:</strong> August 20, 2025
+            </div>
+
+            <div class="section">
+                <h2>1) Personal Information We Collect</h2>
+                <ul>
+                    <li>
+                        <strong>Registration/Authentication:</strong> Google
+                        OAuth profile (name/email/profile image), Apple Sign In
+                        profile (name/email)
+                    </li>
+                    <li>
+                        <strong>Service Usage:</strong> Alarms, notifications,
+                        alarm activity logs, parent-child relationship
+                        information, FCM tokens, device/platform information
+                    </li>
+                    <li>
+                        <strong>Uploaded Content:</strong> Audio files (Storage)
+                    </li>
+                    <li>
+                        <strong>Automatically Collected:</strong> App usage
+                        logs, error/debug logs, notification permission/token
+                        status (for diagnostics)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2) Purpose of Collection and Use</h2>
+                <ul>
+                    <li>Account creation/login and user identification</li>
+                    <li>
+                        Subscription payment processing, server verification
+                        (Cloud Functions)
+                    </li>
+                    <li>
+                        Alarm creation/management/synchronization, sending
+                        parent notifications for child activities
+                    </li>
+                    <li>
+                        Service improvement, troubleshooting, security, and
+                        legal compliance
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3) Processing and Retention</h2>
+                <ul>
+                    <li>
+                        We use cloud infrastructure such as Google Firebase for
+                        authentication, data storage, notification delivery, and
+                        server processing.
+                    </li>
+                    <li>
+                        Data may be transferred and stored on overseas servers
+                        (e.g., United States)
+                    </li>
+                    <li>
+                        <strong>Retention Period:</strong> Data is retained
+                        until account deletion, except where legal obligations
+                        require longer retention
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4) Third-Party Sharing and Processing</h2>
+                <ul>
+                    <li>
+                        <strong>Payment Processing:</strong> Apple App Store,
+                        Google Play, and other app marketplace payment providers
+                    </li>
+                    <li>
+                        <strong>Infrastructure:</strong> Google Firebase
+                        services
+                    </li>
+                    <li>
+                        Each provider's privacy policy applies to their services
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    5) Children's Privacy Protection (Family Policy Compliance)
+                </h2>
+
+                <h3>
+                    5-1) Collection and Processing of Children's Information
+                </h3>
+                <ul>
+                    <li>
+                        <strong>Age Restriction:</strong> Children under 13 must
+                        have prior parental/guardian consent to use the service
+                    </li>
+                    <li>
+                        <strong>Data Minimization:</strong> We collect only the
+                        minimum information necessary to provide the service to
+                        children
+                        <ul>
+                            <li>
+                                Account Information: Basic profile through
+                                Google/Apple login
+                            </li>
+                            <li>
+                                Service Usage: Alarm settings, routine
+                                management data
+                            </li>
+                            <li>
+                                Parent Connection: Connection information for
+                                parent-child relationship setup
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Sensitive Information Excluded:</strong> We do
+                        not collect sensitive personal information such as
+                        location, contacts, or photos/videos from children
+                    </li>
+                </ul>
+
+                <h3>5-2) Parental Consent and Management</h3>
+                <ul>
+                    <li>
+                        <strong>Prior Consent:</strong> We obtain explicit
+                        consent from parents/guardians when creating child
+                        accounts
+                    </li>
+                    <li>
+                        <strong>Ongoing Management:</strong> Parents can review
+                        and control their child's personal information
+                        processing at any time
+                    </li>
+                    <li>
+                        <strong>Rights Exercise:</strong> Parents can exercise
+                        the following rights regarding their child's personal
+                        information:
+                        <ul>
+                            <li>
+                                Review personal information collection and usage
+                            </li>
+                            <li>
+                                Request correction or deletion of personal
+                                information
+                            </li>
+                            <li>
+                                Request suspension of personal information
+                                processing
+                            </li>
+                            <li>Withdraw consent and delete account</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>5-3) Child-Specific Safety Measures</h3>
+                <ul>
+                    <li>
+                        <strong>Data Security:</strong> Children's data receives
+                        the same level of encryption and security measures as
+                        adult data
+                    </li>
+                    <li>
+                        <strong>Access Restriction:</strong> Access to
+                        children's personal information is limited to the
+                        minimum necessary personnel
+                    </li>
+                    <li>
+                        <strong>Third-Party Sharing Restriction:</strong>
+                        Children's personal information is not shared with third
+                        parties except as permitted by law
+                    </li>
+                    <li>
+                        <strong>Marketing Restriction:</strong> We do not use
+                        children's personal information for marketing purposes
+                    </li>
+                </ul>
+
+                <h3>5-4) Child-Friendly Service Design</h3>
+                <ul>
+                    <li>
+                        <strong>Age Appropriateness:</strong> We provide only
+                        safe and appropriate content considering children's
+                        developmental stages
+                    </li>
+                    <li>
+                        <strong>Parental Control:</strong> We provide features
+                        for parents to monitor and manage their child's service
+                        usage
+                    </li>
+                    <li>
+                        <strong>Educational Value:</strong> We provide alarm and
+                        routine management features that help develop healthy
+                        lifestyle habits
+                    </li>
+                </ul>
+
+                <h3>5-5) Legal Compliance</h3>
+                <ul>
+                    <li>
+                        <strong>Domestic Law:</strong> We comply with Korean
+                        laws related to children's personal information
+                        protection, including the Personal Information
+                        Protection Act
+                    </li>
+                    <li>
+                        <strong>International Standards:</strong> We comply with
+                        international child protection standards such as COPPA
+                        (Children's Online Privacy Protection Act)
+                    </li>
+                    <li>
+                        <strong>Platform Policies:</strong> We comply with
+                        Google Play Family Policy and Apple App Store child
+                        protection policies
+                    </li>
+                </ul>
+
+                <h3>5-6) Inquiries and Reports</h3>
+                <ul>
+                    <li>
+                        For inquiries or rights exercise requests regarding
+                        children's privacy protection, please contact us at the
+                        address below
+                    </li>
+                    <li>
+                        <strong>Contact:</strong> iroutine.contact@gmail.com
+                    </li>
+                    <li>
+                        <strong>Processing Period:</strong> Within 7 days of
+                        receipt (up to 14 days for complex matters)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6) User Rights and How to Exercise Them</h2>
+                <ul>
+                    <li>
+                        You may request access, correction, deletion, suspension
+                        of processing, or withdrawal of consent for your
+                        personal information
+                    </li>
+                    <li>
+                        Requests can be made through in-app features or by email
+                        (contact below)
+                    </li>
+                    <li>
+                        Information required to be retained by law may be kept
+                        for the legally mandated period even after account
+                        deletion
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7) Security Measures</h2>
+                <ul>
+                    <li>
+                        Access control, transmission encryption (HTTPS),
+                        authentication information protection, etc.
+                    </li>
+                    <li>
+                        We cannot eliminate all risks from third-party service
+                        failures or force majeure situations
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8) Cookies/Trackers</h2>
+                <ul>
+                    <li>Due to the app's nature, we do not use web cookies</li>
+                    <li>
+                        Push tokens/device identifiers may be used for
+                        notification delivery and security purposes
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>9) International Transfer Notice</h2>
+                <ul>
+                    <li>
+                        Data may be transferred to overseas servers such as
+                        Firebase; if you do not consent, service usage may be
+                        restricted
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>10) Policy Changes</h2>
+                <ul>
+                    <li>
+                        Changes will be announced through in-app notifications
+                        and updated versions will be provided
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>11) Contact</h2>
+                <div class="contact">
+                    <strong>Email:</strong>
+                    <a href="mailto:iroutine.contact@gmail.com"
+                        >iroutine.contact@gmail.com</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div id="en-terms-tab" class="tab-content">
+            <h2
+                style="
+                    color: #2c3e50;
+                    border-bottom: 2px solid #3498db;
+                    padding-bottom: 10px;
+                "
+            >
+                Terms of Service and End User License Agreement (EULA)
+            </h2>
+
+            <div class="meta-info">
+                <strong>Effective Date:</strong> August 20, 2025<br />
+                <strong>Last Updated:</strong> August 20, 2025<br />
+                <strong>Contact:</strong> iroutine.contact@gmail.com
+            </div>
+
+            <div class="section">
+                <h2>1) Purpose and License Grant</h2>
+                <ul>
+                    <li>
+                        These terms establish the conditions and procedures for
+                        using iRoutine (the "Service") and the rights and
+                        obligations of users and the company.
+                    </li>
+                    <li>
+                        The company grants users a non-exclusive,
+                        non-transferable license to use the Service in
+                        accordance with these terms.
+                    </li>
+                    <li>
+                        These terms serve as an End User License Agreement
+                        (EULA).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2) Account and Eligibility</h2>
+                <ul>
+                    <li>
+                        Use by persons under 14 years of age requires consent
+                        and supervision from a parent/guardian account.
+                    </li>
+                    <li>
+                        Users must provide accurate information when registering
+                        and must not infringe on others' rights.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3) Service Description</h2>
+                <ul>
+                    <li>
+                        We provide alarm/routine creation, modification,
+                        deletion, notification delivery, and parent-child
+                        linking for parental management of children's alarms.
+                    </li>
+                    <li>
+                        Alarm/routine creation, modification, and deletion
+                        features are provided to parent accounts; child accounts
+                        can view and perform (e.g., departure/arrival, routine
+                        check) alarms/routines set by parents.
+                    </li>
+                    <li>
+                        The company may set daily limits or usage restrictions
+                        on alarm/routine creation for parent accounts according
+                        to service operation policies. If a parent wishes to
+                        create more than one alarm or routine per day, ad
+                        viewing may be required for additional creation;
+                        specific criteria and policies are provided within the
+                        service.
+                    </li>
+                    <li>
+                        The service may be continuously improved and changed;
+                        significant changes will be announced through in-app
+                        notifications.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4) Subscription and Payment</h2>
+                <ul>
+                    <li>
+                        Premium features are provided through auto-renewing
+                        subscriptions.
+                    </li>
+                    <li>
+                        Pricing: Monthly ₩1,100, Yearly ₩8,800 (actual charges
+                        and taxes follow each app marketplace's display/policy).
+                    </li>
+                    <li>
+                        Payment/billing/refunds/cancellation follow Apple App
+                        Store or Google Play Store policies.
+                    </li>
+                    <li>
+                        Subscriptions may auto-renew 24 hours before the current
+                        period ends; renewal management can be done in each
+                        store's subscription management screen.
+                    </li>
+                    <li>
+                        Regarding purchase cancellation (withdrawal):
+                        Cancellation/refund follows each store's policy and
+                        review results.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5) Parent-Child Features</h2>
+                <ul>
+                    <li>
+                        Parents can create, modify, and delete alarms for child
+                        accounts and receive notifications about child
+                        activities.
+                    </li>
+                    <li>
+                        Parents bear responsibility for using these features and
+                        must process children's personal information lawfully.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6) User Obligations</h2>
+                <ul>
+                    <li>
+                        Comply with laws, terms, and notices; do not infringe on
+                        others' rights.
+                    </li>
+                    <li>
+                        Maintain account security (password/device management).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7) Prohibited Activities</h2>
+                <ul>
+                    <li>
+                        Abnormal access, reverse engineering, spam/malware
+                        distribution, unauthorized access to others'
+                        accounts/data, etc.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8) Service Interruption</h2>
+                <ul>
+                    <li>
+                        Service may be temporarily suspended due to system
+                        maintenance, natural disasters, or third-party service
+                        (Firebase, app marketplace payment, etc.) failures.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>9) Intellectual Property</h2>
+                <ul>
+                    <li>
+                        Rights to the service and provided content belong to the
+                        company or legitimate rights holders; unauthorized use
+                        is prohibited.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>10) Limitation of Liability</h2>
+                <ul>
+                    <li>
+                        The company is not liable for damages from free features
+                        or force majeure/third-party service failures.
+                    </li>
+                    <li>
+                        Refund/billing disputes related to paid subscriptions
+                        primarily follow each store's policy.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>11) Contract Termination</h2>
+                <ul>
+                    <li>
+                        Users may cancel subscriptions at any time through each
+                        store. Account deletion can be requested through the app
+                        or contact channels.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>12) Changes to Terms</h2>
+                <ul>
+                    <li>
+                        Changes will be announced in advance with effective date
+                        and reasons. Significant changes will be notified
+                        through in-app announcements.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>13) Governing Law and Dispute Resolution</h2>
+                <ul>
+                    <li>
+                        Korean law governs these terms; disputes will be
+                        resolved in the competent court.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>14) Contact</h2>
+                <div class="contact">
+                    <strong>Email:</strong>
+                    <a href="mailto:iroutine.contact@gmail.com"
+                        >iroutine.contact@gmail.com</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div id="en-deletion-tab" class="tab-content">
+            <h2
+                style="
+                    color: #2c3e50;
+                    border-bottom: 2px solid #3498db;
+                    padding-bottom: 10px;
+                "
+            >
+                Account/Data Deletion Guide
+            </h2>
+
+            <div class="meta-info">
+                <strong>Effective Date:</strong> August 20, 2025<br />
+                <strong>Last Updated:</strong> August 20, 2025<br />
+                <strong>Contact:</strong> iroutine.contact@gmail.com
+            </div>
+
+            <div class="section">
+                <h2>1) Scope of Deletion</h2>
+                <ul>
+                    <li>
+                        Basic Account Information: Name, email, role
+                        (parent/child)
+                    </li>
+                    <li>
+                        Family/Relationship Information: Parent-child connection
+                        information
+                    </li>
+                    <li>
+                        App Data: Alarm settings, alarm activity logs
+                        (confirmed/dismissed/snoozed/missed)
+                    </li>
+                    <li>
+                        Device Identifiers: FCM tokens for push notifications
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2) Retention and Deletion Timeline</h2>
+                <ul>
+                    <li>
+                        Minimal records may be retained for up to 90 days for
+                        legal compliance and dispute resolution.
+                    </li>
+                    <li>
+                        Related data will be permanently deleted after the
+                        retention period.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3) How to Request Account/Data Deletion</h2>
+                <ul>
+                    <li>Please request deletion via the email below.</li>
+                    <li>
+                        Email subject
+                        <strong>must include [Data Deletion Request]</strong>.
+                    </li>
+                    <li>
+                        Please include the following information in your email:
+                        <ul>
+                            <li><strong>Full Name</strong></li>
+                            <li><strong>Phone Number</strong></li>
+                            <li>
+                                <strong>Email address used for login</strong>
+                                (Using the same email for the request helps
+                                verify your identity)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Processing Time:</strong> 7-14 business days
+                        after receipt
+                    </li>
+                </ul>
+                <div class="contact">
+                    <p>
+                        <strong>Email:</strong>
+                        <a
+                            href="mailto:iroutine.contact@gmail.com?subject=%5BData%20Deletion%20Request%5D&body=Full%20Name%3A%0APhone%20Number%3A%0ALogin%20Email%3A%0AOther%20Requests%3A%0A%0ANote%3A%20Account%20deletion%20is%20irreversible."
+                            >iroutine.contact@gmail.com</a
+                        >
+                    </p>
+                    <p style="margin-top: 8px; font-size: 14px; color: #555">
+                        Example subject: [Data Deletion Request] iRoutine
+                        Account Deletion Request
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4) Important Notes</h2>
+                <ul>
+                    <li>Deletion is irreversible once completed.</li>
+                    <li>
+                        Please consider carefully as this may affect other users
+                        connected through parent/child relationships.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <script>
-            function showTab(tabName) {
-                // 모든 탭 콘텐츠 숨기기
-                const tabContents = document.querySelectorAll(".tab-content");
-                tabContents.forEach((content) => {
+            let currentLang = "ko";
+
+            function switchLang(lang) {
+                currentLang = lang;
+
+                // Update language buttons
+                document.querySelectorAll(".lang-btn").forEach((btn) => {
+                    btn.classList.remove("active");
+                });
+                event.target.classList.add("active");
+
+                // Show/hide language content
+                document
+                    .querySelectorAll(".lang-content")
+                    .forEach((content) => {
+                        content.classList.remove("active");
+                    });
+                document
+                    .getElementById(lang + "-content")
+                    .classList.add("active");
+
+                // Show/hide tab contents
+                document.querySelectorAll(".tab-content").forEach((content) => {
+                    content.classList.remove("active");
+                });
+                document
+                    .getElementById(lang + "-privacy-tab")
+                    .classList.add("active");
+
+                // Reset tab buttons
+                document.querySelectorAll(".nav-tab").forEach((btn) => {
+                    btn.classList.remove("active");
+                });
+                document
+                    .querySelector("#" + lang + "-tabs .nav-tab")
+                    .classList.add("active");
+            }
+
+            function showTab(tabName, lang) {
+                lang = lang || currentLang;
+
+                // Hide all tab contents for current language
+                document.querySelectorAll(".tab-content").forEach((content) => {
                     content.classList.remove("active");
                 });
 
-                // 모든 탭 버튼 비활성화
-                const tabButtons = document.querySelectorAll(".nav-tab");
-                tabButtons.forEach((button) => {
-                    button.classList.remove("active");
-                });
-
-                // 선택된 탭 콘텐츠 보이기
+                // Show selected tab
                 document
-                    .getElementById(tabName + "-tab")
+                    .getElementById(lang + "-" + tabName + "-tab")
                     .classList.add("active");
 
-                // 선택된 탭 버튼 활성화
+                // Update tab buttons
+                document
+                    .querySelectorAll("#" + lang + "-tabs .nav-tab")
+                    .forEach((btn) => {
+                        btn.classList.remove("active");
+                    });
                 event.target.classList.add("active");
             }
         </script>
