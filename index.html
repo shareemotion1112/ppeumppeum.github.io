@@ -623,8 +623,8 @@
                 <h2>14) 문의처</h2>
                 <div class="contact">
                     <strong>이메일:</strong>
-                    <a href="mailto:mymarble.contact@gmail.com"
-                        >mymarble.contact@gmail.com</a
+                    <a href="mailto:iroutine.contact@gmail.com"
+                        >iroutine.contact@gmail.com</a
                     >
                 </div>
             </div>
@@ -644,7 +644,7 @@
             <div class="meta-info">
                 <strong>시행일:</strong> 2025-08-20<br />
                 <strong>최종 업데이트:</strong> 2025-08-20<br />
-                <strong>문의:</strong> mymarble.contact@gmail.com
+                <strong>문의:</strong> iroutine.contact@gmail.com
             </div>
 
             <div class="section">
@@ -1137,8 +1137,8 @@
                         subscriptions.
                     </li>
                     <li>
-                        Pricing: Monthly ₩1,100, Yearly ₩8,800 (actual charges
-                        and taxes follow each app marketplace's display/policy).
+                        Pricing is displayed in your local currency within the app.
+                        Actual charges and taxes follow each app marketplace's display/policy.
                     </li>
                     <li>
                         Payment/billing/refunds/cancellation follow Apple App
@@ -1380,7 +1380,20 @@
         </div>
 
         <script>
-            let currentLang = "ko";
+            let currentLang = (navigator.language || "ko").startsWith("ko") ? "ko" : "en";
+
+            // 초기 언어 설정 적용
+            (function initLang() {
+                if (currentLang === "en") {
+                    document.querySelectorAll(".lang-content").forEach(c => c.classList.remove("active"));
+                    document.getElementById("en-content").classList.add("active");
+                    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+                    document.getElementById("en-privacy-tab").classList.add("active");
+                    document.querySelectorAll(".lang-btn").forEach(btn => {
+                        btn.classList.toggle("active", btn.textContent.trim() === "English");
+                    });
+                }
+            })();
 
             function switchLang(lang) {
                 currentLang = lang;
