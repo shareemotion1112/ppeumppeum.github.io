@@ -16,18 +16,23 @@
 
     let DATA = null;
 
-    // ---------- 분석 (쿠키·저장소 사용 안 함) ----------
+    // ---------- 분석 (GA4 분석 쿠키만 사용, 광고 쿠키 차단) ----------
+    // client_storage: "none"은 GA4 gtag에서 무시되어 _ga 쿠키가 생긴다 (2026-09-26 확인).
+    // 분석 쿠키는 고지 후 사용하고, 광고용 저장(_gcl_au 등)은 동의 모드로 막는다.
     function initAnalytics() {
         if (!CFG.GA_ID) return;
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () {
             window.dataLayer.push(arguments);
         };
-        window.gtag("js", new Date());
-        window.gtag("config", CFG.GA_ID, {
-            client_storage: "none",
-            client_id: `${Date.now()}.${Math.floor(Math.random() * 1e9)}`,
+        window.gtag("consent", "default", {
+            analytics_storage: "granted",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
         });
+        window.gtag("js", new Date());
+        window.gtag("config", CFG.GA_ID);
         const s = document.createElement("script");
         s.async = true;
         s.src = `https://www.googletagmanager.com/gtag/js?id=${CFG.GA_ID}`;
