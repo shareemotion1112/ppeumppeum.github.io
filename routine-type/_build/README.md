@@ -28,6 +28,9 @@ cd terms && python3 -m http.server 8765
 ```
 8유형 + 3:2 경계 2건이 모두 `OK`여야 한다.
 
+## 도메인
+`buddyup.kr` (저장소 루트 `CNAME`). 도메인을 바꾸면 `assets/data.json`의 `baseUrl`, `index.html`의 og 태그를 고치고 빌드를 다시 돌린 뒤, 카카오 SDK 도메인·제품 링크 도메인도 바꾼다.
+
 ## 배포 전 설정 (`assets/config.js`)
 - `GA_ID`: GA4 웹 스트림 측정 ID. 분석 쿠키(_ga)는 쓰고 광고 쿠키는 동의 모드로 막는다 (`client_storage: 'none'`은 GA4에서 무시됨)
 - `KAKAO_JS_KEY`: Kakao Developers JavaScript 키 (플랫폼 > Web에 배포 도메인 등록)
