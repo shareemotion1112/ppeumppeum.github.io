@@ -1,0 +1,2 @@
+# 전역 gitignore(*.jpg) 예외: 링크 미리보기 이미지는 배포해야 함
+!routine-type/assets/og/*.jpg
