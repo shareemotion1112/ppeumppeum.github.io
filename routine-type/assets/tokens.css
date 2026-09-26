@@ -1,0 +1,117 @@
+/*
+ * 루틴 유형 테스트 디자인 토큰
+ * 기준 색은 아이루틴 앱에서 가장 많이 쓰는 색에서 가져옴 (PRD §6).
+ * 글자 크기·굵기는 아래 타이포그래피 클래스에서만 정의한다.
+ */
+:root {
+    /* 색 */
+    --color-primary: #6366f1;
+    --color-primary-strong: #4f46e5; /* 흰 글자 버튼용 (대비 4.5:1 이상) */
+    --color-primary-soft: #eef2ff;
+    --color-text: #1f2937;
+    --color-text-sub: #64748b;
+    --color-text-sub-strong: #475569; /* 유형 색 배경 위 보조 글자 (대비 4.5:1 이상) */
+    --color-text-muted: #94a3b8;
+    --color-border: #e2e8f0;
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-success: #10b981;
+    --color-accent: #f97316;
+    --color-kakao: #fee500;
+    --color-kakao-text: #191919;
+    --color-on-primary: #ffffff;
+    --color-overlay: rgba(15, 23, 42, 0.6);
+
+    /* 유형 색 (accent: 배지·강조, soft: 카드 배경) */
+    --type-lse-accent: #f59e0b;
+    --type-lse-soft: #fef3c7;
+    --type-lsk-accent: #f97316;
+    --type-lsk-soft: #ffedd5;
+    --type-lte-accent: #eab308;
+    --type-lte-soft: #fef9c3;
+    --type-ltk-accent: #fb923c;
+    --type-ltk-soft: #fff7ed;
+    --type-ose-accent: #6366f1;
+    --type-ose-soft: #eef2ff;
+    --type-osk-accent: #4f46e5;
+    --type-osk-soft: #e0e7ff;
+    --type-ote-accent: #8b5cf6;
+    --type-ote-soft: #f3e8ff;
+    --type-otk-accent: #7c3aed;
+    --type-otk-soft: #ede9fe;
+
+    /* 글꼴 */
+    --font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    --font-size-display: 28px;
+    --font-size-title: 22px;
+    --font-size-subtitle: 18px;
+    --font-size-body: 16px;
+    --font-size-caption: 13px;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --line-height-tight: 1.3;
+    --line-height-body: 1.6;
+
+    /* 간격 */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+
+    /* 모서리·그림자·크기 */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-full: 999px;
+    --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
+    --border-width: 1px;
+    --focus-ring: 3px solid var(--color-primary);
+    --content-max-width: 480px;
+    --progress-height: 8px;
+    --tap-min-height: 56px;
+    --char-size: 220px;
+    --duration-fast: 150ms;
+}
+
+/* 타이포그래피 — 글자 크기·굵기는 여기서만 정의 */
+.t-display {
+    font-size: var(--font-size-display);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-tight);
+}
+.t-title {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+.t-subtitle {
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+.t-body {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+}
+.t-body-strong {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-body);
+}
+.t-caption {
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+}
+.t-button {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
